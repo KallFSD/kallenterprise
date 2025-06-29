@@ -114,7 +114,7 @@ function footerContent(indexedLevels) {
             </div>
             
             <div class="footer_element">
-                <a href="#">Contato</a>
+                <a href="${indexedLevels}pages/contact.html">Contato</a>
             </div>
 
             <div class="footer_element">

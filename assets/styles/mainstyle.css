@@ -1,6 +1,7 @@
 /* CSS do Container de divisão de tela do Main com o Aside */
 
 .main_container {
+    min-height: 75vh;
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -67,13 +68,45 @@ main {
     font-size: 1.2em;
 }
 
+.stack {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
 .content_container p {
     font-size: 1.25em;
     word-spacing: 2px;
+    text-align: justify;
+    text-indent: 20px;
 }
 
 .content_container a {
     text-decoration: none;
+}
+
+.content_container b {
+    font-weight: bold;
+}
+
+.content_container button {
+    padding: 5px 10px;
+    background-color: lightgreen;
+    color: darkslateblue;
+    border: 0px solid transparent;
+    border-radius: 100px;
+}
+
+.content_container button:hover {
+    background-color: green;
+    color:aliceblue;
+}
+
+.content_container button:active {
+    background-color: aquamarine;
+    color: gray;
 }
 
 
