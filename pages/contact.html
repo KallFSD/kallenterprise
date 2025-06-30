@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Author:João Pedro Gabriel, Category: Dark Horror History, Title: O Homem do Machado">
 
-        <title>Página Inicial</title>
+        <title>Contato</title>
 
-        <script src="script.js" defer></script>
+        <script src="../script.js" defer></script>
 
     </head>
 
@@ -15,25 +15,29 @@
     <body>
         <header class="dinamicHeader"></header>
 
-        <section class="main_container">    
+        <section class="main_container">
             <main>
                 <section class="container">
                     <div class="header_container">
-                        <h1>Produções</h1>
-                        <a href="pages/productions.html">
-                            <button>Mais</button>
-                        </a>
+                        <h1>Entrar em Contato</h1>
                     </div>
                     <div class="divisor_line"></div>
-                    <div class="content_container stack">
-                        <p>O Homem do Machado</p>
-                        <a href="https://kallfsd.github.io/hm-website/">
-                            <button>Ver Produção</button>
-                        </a>
+                    <section class="content_container">
+                        <h1>Nome e Assunto</h1>
+                        <input type="text" id="email-subject" class="subject" placeholder="Digite seu nome e o assunto">
+                    </section>
+                    <section class="content_container">
+                        <h1>Conteúdo do Email</h1>
+                        <textarea id="email-body" class="email_content" rows="7" placeholder="Digite sua mensagem aqui..."></textarea>
+                    </section>
+
+                    <div class="dinamic_send_button">
+                        <button id="save-button">Salvar</button>
+                        <button id="send-button" disabled>Enviar</button>
                     </div>
                 </section>
 
-                <section class="container">
+                                <section class="container">
                     <div class="header_container">
                         <h1>Canais de Contato</h1>
                         <a href="pages/contact.html">
@@ -45,19 +49,19 @@
                         <section class="subcontent_column_container">
                             <section class="subcontent_grid_container">
                                 <a href="https://www.linkedin.com/in/joão-pedro-gabriel-7628b02b3"><div class="character_container">
-                                    <img src="assets/images/linkedin_logo.svg" width="100px" height="100px" alt="Linked In Logo">
+                                    <img src="../assets/images/linkedin_logo.svg" width="100px" height="100px" alt="Linked In Logo">
                                     <section class="character_name">
                                         <h1>Linked In</h1>
                                     </section>
                                 </div></a>
                                 <a href="https://github.com/joaopedrogabriel"><div class="character_container">
-                                    <img src="assets/images/github_logo.svg" width="100px" height="100px" alt="Github Logo">
+                                    <img src="../assets/images/github_logo.svg" width="100px" height="100px" alt="Github Logo">
                                     <section class="character_name">
                                         <h1>Github</h1>
                                     </section>
                                 </div></a>
                                 <a href="https://www.instagram.com/joaogabriel_pedrobr/"><div class="character_container">
-                                    <img src="assets/images/instagram_logo.svg" width="100px" height="100px" alt="Instagram Logo">
+                                    <img src="../assets/images/instagram_logo.svg" width="100px" height="100px" alt="Instagram Logo">
                                     <section class="character_name">
                                         <h1>Instagram</h1>
                                     </section>
@@ -75,23 +79,29 @@
                     </section>
                     <div class="divisor_line"></div>
                     <section class="subcontent_image_container">
-                        <img src="assets/images/Logo_KallFullstackDevelopment.svg" width="200px" height="200px" alt="Author_Photo">
+                        <img src="../assets/images/AuthorPicture.svg" width="200px" height="200px" alt="Author_Photo">
                     </section>
+                    <section class="subcontent_container">
+                        <h1>Nome:</h1> <p>João Pedro Gabriel</p>
+                    </section>
+                    <section class="subcontent_container">
+                        <h1>Pseudônimo:</h1> <p>Kalleby7034</p>
+                    </section>
+
                     <section class="content_container">
-                        <h1>Desenvolvimento</h1> <p>Kall - FullStack Development</p>
+                        <p><b>Olá! Meu nome é João Pedro Gabriel</b></p>
+                        <p>Tenho 18 anos, e eu gosto muito de Programação, e estou cursando Engenharia de Software na UniCesumar, e me especializando em desenvolvimento web, sou certificado na DIO em desenvolvimento de aplicações em .NET, estou buscando cada dia mais melhorar algum aspecto da minha carreira.</p>
                     </section>
-                    <section class="content_container">
-                        <h1>Mídia e Conteúdo Digital</h1> <p>Kall - Productions</p>
-                    </section>
+
                     <section class="subcontent_column_container">
                         <section class="subcontent_header_grid_container">
-                            <h1>Serviços</h1>
+                            <h1>Hobbies/Habilidades:</h1>
                         </section>
                         <section class="subcontent_grid_container">
-                            <div>Desenvolvimento</div>
-                            <div>Literatura e Produções</div>
-                            <div>Edição de Fotos e Vídeos</div>
-                            <div>Web Design</div>
+                            <div>Programador</div>
+                            <div>Escritor</div>
+                            <div>Criador de Conteúdo</div>
+                            <div>Web Designer</div>
                         </section>
                     </section>
                 </section>
@@ -99,8 +109,8 @@
         </section>
         
 
-        <script defer>
-            const levelBuild = 0;
+        <script>
+            const levelBuild = 1;
 
             // Função para construir a página dinamicamente
             document.addEventListener("DOMContentLoaded", () => {

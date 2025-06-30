@@ -109,6 +109,69 @@ main {
     color: gray;
 }
 
+.content_container input {
+    margin: 0 2.5% 0 2.5%;
+    padding: 10px;
+    width: 90%;
+    height: 20px;
+    font-size: 1.2em;
+    border: 0px solid transparent;
+    border-radius: 10px;
+}
+
+.content_container textarea {
+    margin: 0 2.5% 0 2.5%;
+    padding: 5px;
+    width: 93%;
+    height: 200px;
+    font-size: 1.2em;;
+    border: 0px solid transparent;
+    border-radius: 10px;
+}
+
+#save-button {
+    padding: 5px 10px;
+    background-color: lightgreen;
+    color: darkslateblue;
+    border: 0px solid transparent;
+    border-radius: 100px;
+}
+
+#save-button:hover {
+    background-color: green;
+    color:aliceblue;
+}   
+
+#save-button:active {
+    background-color: aquamarine;
+    color: gray;
+
+}
+
+#send-button {
+    padding: 5px 10px;
+    background-color: lightgreen;
+    color: darkslateblue;
+    border: 0px solid transparent;
+    border-radius: 100px;
+}
+
+#send-button:hover {
+    background-color: green;
+    color:aliceblue;
+}   
+
+#send-button:active {
+    background-color: aquamarine;
+    color: gray;
+
+}
+
+#send-button:disabled {
+    background-color: gray;
+    color: aliceblue;
+    cursor: not-allowed;
+}
 
 
 /* CSS do Creative Commons da Página */
@@ -226,6 +289,13 @@ main {
 
 .subcontent_grid_container a {
     text-decoration: none;
+}
+
+.subcontent_grid_container img {
+    width: 100px;
+    height: 100px;
+    border: 0 solid transparent;
+    border-radius: 0;
 }
 
 .subcontent_grid_container a:active {

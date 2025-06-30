@@ -220,6 +220,49 @@ function build(levelPath) {
         });
     }
 
+    // Lógica para o formulário de contato
+    const saveButton = document.getElementById('save-button');
+    const sendButton = document.getElementById('send-button');
+    const emailSubject = document.getElementById('email-subject');
+    const emailBody = document.getElementById('email-body');
+
+    // Verifica se os elementos do formulário de contato existem na página atual
+    if (saveButton && sendButton && emailSubject && emailBody) {
+        let mailtoUrl = ''; // Armazena a URL do mailto
+
+        saveButton.addEventListener('click', () => {
+            const subjectValue = emailSubject.value.trim();
+            const bodyValue = emailBody.value.trim();
+ 
+            // Verifica se ambos os campos têm conteúdo
+            if (subjectValue && bodyValue) {
+                const targetEmail = 'kall.fsd@gmail.com'; 
+ 
+                const subject = encodeURIComponent(subjectValue);
+                const body = encodeURIComponent(bodyValue);
+                
+                // Prepara e armazena a URL
+                mailtoUrl = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
+                sendButton.disabled = false;
+ 
+                alert('Dados salvos! Agora você pode clicar em "Enviar".');
+                console.log('Dados do e-mail preparados. O botão de envio foi habilitado.');
+            } else {
+                // Informa o usuário que os campos são obrigatórios
+                alert('Por favor, preencha o assunto e o conteúdo do e-mail antes de salvar.');
+            }
+        });
+
+        sendButton.addEventListener('click', () => {
+            // Se o botão estiver habilitado, dispara o e-mail
+            if (!sendButton.disabled) {
+                window.location.href = mailtoUrl;
+                alert('Enviado com sucesso!');
+                window.location.reload();
+            }
+        });
+    }
+
     // Retorno de Sucesso de Construção
     console.log("Cabeçalho e rodapé dinâmicos construídos com sucesso!");
   } else {
