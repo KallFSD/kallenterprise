@@ -5,11 +5,12 @@ function headerContent(indexedLevels) {
   // Estrutura de dados unificada para os itens de navegação
   const navItems = [
     { href: `${indexedLevels}index.html`, text: 'Página Principal', icon: 'home.svg', group: 'main' },
-    { href: '#', text: 'Sobre Nós', icon: 'about.svg', group: 'main' },
-    { href: '#', text: 'Ajude-nos', group: 'help' },
+    { href: `${indexedLevels}pages/aboutus.html`, text: 'Sobre Nós', icon: 'about.svg', group: 'main' },
+    { href: 'https://link.mercadopago.com.br/supportkallbusiness', text: 'Ajude-nos', group: 'help' },
     // Adicione mais itens aqui facilmente
     { href: `${indexedLevels}pages/history.html`, text: 'História', group: 'expanded' },
-    { href: `${indexedLevels}categories.html`, text: 'Categorias', icon: 'categories.svg', group: 'expanded' },
+    { href: `${indexedLevels}pages/support_contact.html`, text: 'Suporte e Contato', group: 'expanded' },
+    { href: `${indexedLevels}terms-of-use.html`, text: 'Termos de Uso', group: 'expanded' },
   ];
   
   // Função para gerar o conteúdo de um item de navegação
@@ -110,11 +111,7 @@ function footerContent(indexedLevels) {
         </section>
         <section class="footer_container">
             <div class="footer_element">
-                <a href="#">Suporte</a>
-            </div>
-            
-            <div class="footer_element">
-                <a href="${indexedLevels}pages/contact.html">Contato</a>
+                <a href="${indexedLevels}pages/support_contact.html">Suporte e Contato</a>
             </div>
 
             <div class="footer_element">
@@ -123,7 +120,7 @@ function footerContent(indexedLevels) {
         </section>
         <section class="footer_license">
             <p>
-                <a href="https://kallfsd.github.io/homemdomachado">O Homem do Machado</a>
+                <a href="https://kallfsd.github.io/kallenterprise">Kall Enterprise</a>
                 © 2025 by
                 <a href="https://github.com/joaopedrogabriel">João Pedro Gabriel</a>
                 is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
