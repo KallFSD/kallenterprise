@@ -7,13 +7,17 @@
 
         <title>Página Inicial</title>
 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
         <script src="script.js" defer></script>
 
     </head>
 
 
     <body>
-        <header class="dinamicHeader"></header>
+        <header class="dinamicHeader"></header><!-- Estrutura de Cabeçalho dinâmico -> Incluso no script.js -->
+
 
         <section class="main_container">    
             <main>
@@ -79,14 +83,15 @@
         
 
         <script defer>
+            //Variável que define localização de arquivo na estrutura de diretório do site
             const levelBuild = 0;
 
             // Função para construir a página dinamicamente
             document.addEventListener("DOMContentLoaded", () => {
-                build(levelBuild); // Chamada da função build com o parâmetro inicial
+                build(levelBuild); // Chamada da função build com o parâmetro para construir página.
             });
         </script>
     </body>
-    <footer class="dinamicFooter"></footer>
+    <footer class="dinamicFooter"></footer><!-- Estrutura de Rodapé dinâmico -> Incluso no script.js -->
 
 </html>
