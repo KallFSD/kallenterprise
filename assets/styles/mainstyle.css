@@ -270,7 +270,7 @@ main {
 }
 
 .character_container:hover {
-    background-color: #222222;
+    background-color: #233359;
 }
 
 .character_container img {
@@ -363,10 +363,15 @@ main {
     color: gray;
 }
 
+#github {
+    color: #3f009d;
+}
+
 /* --- Media Query para Responsividade --- */
 /* Aplica estes estilos apenas quando a largura da tela for 425px ou menos */
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 769px) {
     .main_container {
+        font-size: small;
         /* Muda a direção do flexbox para empilhar os itens verticalmente */
         flex-direction: column;
         /* Reduz as margens laterais para aproveitar melhor o espaço */

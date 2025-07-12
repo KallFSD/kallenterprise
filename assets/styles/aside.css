@@ -77,8 +77,15 @@ aside .subcontent_column_container {
 .subcontent_grid_container div {
     /* Estilos para os itens da grid, como padding, background, border-radius, etc. */
     padding: 4px 15px;
-    background-color: #6c757d;
+    background-color: #222222;
     color: white;
     border-radius: 15px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h3 {
+    font-size: small;
 }

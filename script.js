@@ -1,42 +1,44 @@
 //#region HeaderContent
 function headerContent(indexedLevels) {
   let deviceType = defHeaderNavBar();
- 
-  // Estrutura de dados unificada para os itens de navegação
-  const navItems = [
-    { href: `${indexedLevels}index.html`, text: 'Página Principal', icon: 'home.svg', group: 'main' },
-    { href: `${indexedLevels}pages/aboutus.html`, text: 'Sobre Nós', icon: 'about.svg', group: 'main' },
-    { href: 'https://link.mercadopago.com.br/supportkallbusiness', text: 'Ajude-nos', group: 'help' },
-    // Adicione mais itens aqui facilmente
-    { href: `${indexedLevels}pages/history.html`, text: 'História', group: 'expanded' },
-    { href: `${indexedLevels}pages/support_contact.html`, text: 'Suporte e Contato', group: 'expanded' },
-    { href: `${indexedLevels}terms-of-use.html`, text: 'Termos de Uso', group: 'expanded' },
-  ];
   
-  // Função para gerar o conteúdo de um item de navegação
-  const createNavItemContent = (item) => {
-    if (deviceType === 'smallDevice' && item.icon) {
-      return `<img src="${indexedLevels}assets/images/nav/${item.icon}" width="20px" height="20px" alt="${item.text} icon">`;
-    }
-    return item.text;
-  };
-  
-  // Gera o HTML para cada grupo de navegação
-  const generateNavList = (group) => {
-    return navItems
-      .filter(item => item.group === group)
-      .map(item => `<li><a href="${item.href}">${createNavItemContent(item)}</a></li>`)
-      .join('');
-  };
-  
-  // Gera o HTML para o menu expandido (sempre com texto)
-  const generateExpandedMenuList = () => {
+  //#region AI Refactor
+    // Estrutura de dados unificada para os itens de navegação
+    const navItems = [
+      { href: `${indexedLevels}index.html`, text: 'Página Principal', icon: 'home.svg', group: 'main' },
+      { href: `${indexedLevels}pages/aboutus.html`, text: 'Sobre Nós', icon: 'about.svg', group: 'main' },
+      { href: 'https://link.mercadopago.com.br/supportkallbusiness', text: 'Ajude-nos', group: 'help' },
+      // Adicione mais itens aqui facilmente
+      { href: `${indexedLevels}pages/history.html`, text: 'História', group: 'expanded' },
+      { href: `${indexedLevels}pages/support_contact.html`, text: 'Suporte e Contato', group: 'expanded' },
+      { href: `${indexedLevels}terms-of-use.html`, text: 'Termos de Uso', group: 'expanded' },
+    ];
+    
+    // Função para gerar o conteúdo de um item de navegação
+    const createNavItemContent = (item) => {
+      if (deviceType === 'smallDevice' && item.icon) {
+        return `<img src="${indexedLevels}assets/images/nav/${item.icon}" width="20px" height="20px" alt="${item.text} icon">`;
+      }
+      return item.text;
+    };
+    
+    // Gera o HTML para cada grupo de navegação
+    const generateNavList = (group) => {
       return navItems
-        .filter(item => item.group === 'expanded') // Mostra apenas os itens do grupo 'expanded'
-        .map(item => `<li><a href="${item.href}">${item.text}</a></li>`)
+        .filter(item => item.group === group)
+        .map(item => `<li><a href="${item.href}">${createNavItemContent(item)}</a></li>`)
         .join('');
-  };
-  
+    };
+    
+    // Gera o HTML para o menu expandido (sempre com texto)
+    const generateExpandedMenuList = () => {
+        return navItems
+          .filter(item => item.group === 'expanded') // Mostra apenas os itens do grupo 'expanded'
+          .map(item => `<li><a href="${item.href}">${item.text}</a></li>`)
+          .join('');
+    };
+  //#endregion
+
   //#region DeviceDebug
     //Retorno para debuger para console
     console.log(`Tipo de Dispositivo: ${deviceType}`);
@@ -46,7 +48,7 @@ function headerContent(indexedLevels) {
   let headerContent = `
                 <section>
                     <div class="logo">
-                        <img src="${indexedLevels}assets/images/Logo_KallFullstackDevelopment.svg" width="50px" height="50px" alt="Logo Kall Fullstack Developer">
+                        <img src="${indexedLevels}assets/images/Logo_KallFullstackDevelopment.svg" width="50px" height="50px" alt="Logo Kall Fullstack Developer" loading="lazy">
                     </div>
 
                     <div class="titlebar">
@@ -54,7 +56,7 @@ function headerContent(indexedLevels) {
                     </div>
 
                     <div class="logo">
-                        <img src="${indexedLevels}assets/images/Logo_KallProductions.svg" width="50px" height="50px" alt="Logo Kall Productions">
+                        <img src="${indexedLevels}assets/images/Logo_KallProductions.svg" width="50px" height="50px" alt="Logo Kall Productions" loading="lazy">
                     </div>
                 </section>
 
@@ -87,7 +89,7 @@ function headerContent(indexedLevels) {
 }
 
 function defHeaderNavBar() {
-  const deviceScreen = screen.width; // Usa a largura da janela, mais preciso para responsividade
+  const deviceScreen = screen.width; // Usa a largura da tela. MOTIVO: largura da janela gera bugs de trocas de icones/contextos.
 
   if (deviceScreen) {
     if (deviceScreen <= 430) {
@@ -213,49 +215,6 @@ function build(levelPath) {
                 menuIcon.src = `${indexedLevels}assets/images/nav/close.svg`;
             } else {
                 menuIcon.src = `${indexedLevels}assets/images/nav/menu.svg`;
-            }
-        });
-    }
-
-    // Lógica para o formulário de contato
-    const saveButton = document.getElementById('save-button');
-    const sendButton = document.getElementById('send-button');
-    const emailSubject = document.getElementById('email-subject');
-    const emailBody = document.getElementById('email-body');
-
-    // Verifica se os elementos do formulário de contato existem na página atual
-    if (saveButton && sendButton && emailSubject && emailBody) {
-        let mailtoUrl = ''; // Armazena a URL do mailto
-
-        saveButton.addEventListener('click', () => {
-            const subjectValue = emailSubject.value.trim();
-            const bodyValue = emailBody.value.trim();
- 
-            // Verifica se ambos os campos têm conteúdo
-            if (subjectValue && bodyValue) {
-                const targetEmail = 'kall.fsd@gmail.com'; 
- 
-                const subject = encodeURIComponent(subjectValue);
-                const body = encodeURIComponent(bodyValue);
-                
-                // Prepara e armazena a URL
-                mailtoUrl = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
-                sendButton.disabled = false;
- 
-                alert('Dados salvos! Agora você pode clicar em "Enviar".');
-                console.log('Dados do e-mail preparados. O botão de envio foi habilitado.');
-            } else {
-                // Informa o usuário que os campos são obrigatórios
-                alert('Por favor, preencha o assunto e o conteúdo do e-mail antes de salvar.');
-            }
-        });
-
-        sendButton.addEventListener('click', () => {
-            // Se o botão estiver habilitado, dispara o e-mail
-            if (!sendButton.disabled) {
-                window.location.href = mailtoUrl;
-                alert('Enviado com sucesso!');
-                window.location.reload();
             }
         });
     }
